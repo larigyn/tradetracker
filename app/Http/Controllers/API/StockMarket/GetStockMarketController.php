@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\API\User;
+namespace App\Http\Controllers\API\StockMarket;
 
 use Exception;
-use App\Actions\User\LoginUser;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\LoginUserRequest;
+use App\Actions\StockMarket\GetStock;
+use App\Http\Resources\User\UserResource;
 
-class LoginUserController extends Controller
+class GetStockMarketController extends Controller
 {
     /**
      * Handle the incoming request.
      *
-     * @param LoginUserRequest $request
+     * @param GetStock $action
      * @return \Illuminate\Http\JsonResponse
      */
-    public function __invoke(LoginUserRequest $request, LoginUser $action): JsonResponse
+    public function __invoke(GetStock $action): JsonResponse
     {
         try {
-            $token = $action->execute($request->validated());
-            $this->response['token'] = $token;
+            $stockData = $action->execute();
+            $this->response['data'] = new UserResource($stockData);
         } catch (Exception $e) {
             $this->response = [
                 'error' => $e->getMessage(),

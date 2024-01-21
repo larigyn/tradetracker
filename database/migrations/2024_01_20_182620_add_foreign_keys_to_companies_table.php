@@ -18,11 +18,6 @@ return new class extends Migration
                     ->constrained('users')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
-                $table->foreignId('logo_id')
-                    ->after('user_id')
-                    ->constrained('logos')
-                    ->cascadeOnUpdate()
-                    ->cascadeOnDelete();
             });
         }
     }
@@ -34,7 +29,6 @@ return new class extends Migration
     {
         Schema::table('companies', function (Blueprint $table) {
             $table->dropForeign('user_id');
-            $table->dropForeign('logo_id');
         });
     }
 };

@@ -3,9 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\BaseModel;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -17,7 +17,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
 
 
-class User extends BaseModel implements
+class User extends Model implements
     AuthorizableContract,
     AuthenticatableContract
 {

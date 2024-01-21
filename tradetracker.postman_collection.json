@@ -1,0 +1,658 @@
+{
+	"info": {
+		"_postman_id": "8610f4c6-d8f8-40cd-961a-2308a7575da8",
+		"name": "tradetracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25607201"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.36.1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"trade\",\n    \"last_name\": \"tracker\",\n    \"email\": \"trade.tracker@u.com\",\n    \"password\": \"Aa@1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/api/users/register",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "trade",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Host",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.36.1",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"trade\",\n    \"last_name\": \"tracker\",\n    \"email\": \"trade.tracker@u.com\",\n    \"password\": \"Aa@1234567890\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:80/api/users/register",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 21 Jan 2024 17:18:43 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 2,\n        \"first_name\": \"trade\",\n        \"last_name\": \"tracker\",\n        \"email\": \"trade.tracker@u.com\",\n        \"roles\": [],\n        \"created_at\": \"2024-01-21 17:18:43\",\n        \"updated_at\": \"2024-01-21 17:18:43\",\n        \"deleted_at\": null\n    },\n    \"debug\": {\n        \"database\": {\n            \"total\": 5,\n            \"items\": [\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select count(*) as aggregate from `users` where `last_name` = 'tracker';\",\n                    \"time\": 40.38\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select count(*) as aggregate from `users` where `email` = 'trade.tracker@u.com';\",\n                    \"time\": 1.15\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"insert into `users` (`first_name`, `last_name`, `email`, `password`, `updated_at`, `created_at`) values ('trade', 'tracker', 'trade.tracker@u.com', '$2y$12$NS9OYXawoFruXuSOCk794.dz9D3tWebCWJZdFl8d1XssFrRYUStc2', '2024-01-21 17:18:43', '2024-01-21 17:18:43');\",\n                    \"time\": 10.58\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select * from `roles` where `slug` = 'standard-user' and `roles`.`deleted_at` is null limit 1;\",\n                    \"time\": 1.41\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select `roles`.*, `user_roles`.`user_id` as `pivot_user_id`, `user_roles`.`role_id` as `pivot_role_id` from `roles` inner join `user_roles` on `roles`.`id` = `user_roles`.`role_id` where `user_roles`.`user_id` = '2' and `roles`.`deleted_at` is null;\",\n                    \"time\": 2.2\n                }\n            ]\n        },\n        \"cache\": {\n            \"hit\": {\n                \"keys\": [\n                    \"c704364b808608fae95aa49d8e31562c\"\n                ],\n                \"total\": 1\n            },\n            \"miss\": {\n                \"keys\": [\n                    \"c704364b808608fae95aa49d8e31562c\"\n                ],\n                \"total\": 1\n            },\n            \"write\": {\n                \"keys\": [],\n                \"total\": 0\n            },\n            \"forget\": {\n                \"keys\": [],\n                \"total\": 0\n            }\n        },\n        \"profiling\": [\n            {\n                \"event\": \"request-time\",\n                \"time\": 0.7522521018981934\n            }\n        ],\n        \"memory\": {\n            \"usage\": 22113344,\n            \"peak\": 22170304\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.36.1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"trade.tracker@u.com\",\n    \"password\": \"Aa@1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/api/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Host",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.36.1",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"trade.tracker@u.com\",\n    \"password\": \"Aa@1234567890\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:80/api/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 21 Jan 2024 17:19:38 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"token\": \"1|NXh2RJ1FoAHXdjfj2cQdJyefhCsARgXtLPNd1kRP0a90c556\",\n    \"debug\": {\n        \"database\": {\n            \"total\": 4,\n            \"items\": [\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select * from `users` where `email` = 'trade.tracker@u.com' and `users`.`deleted_at` is null limit 1;\",\n                    \"time\": 15.24\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select `roles`.*, `user_roles`.`user_id` as `pivot_user_id`, `user_roles`.`role_id` as `pivot_role_id` from `roles` inner join `user_roles` on `roles`.`id` = `user_roles`.`role_id` where `user_roles`.`user_id` = '2' and `roles`.`deleted_at` is null;\",\n                    \"time\": 2.36\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select * from `personal_access_tokens` where `tokenable_id` = '2' limit 1;\",\n                    \"time\": 2.57\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"insert into `personal_access_tokens` (`name`, `token`, `abilities`, `expires_at`, `tokenable_id`, `tokenable_type`, `updated_at`, `created_at`) values ('tradetracker', '2e2d4c317800a870de3e457d2c3fbd25866297e438d5d0c0f35781428f3a6b0f', '[]', '', '2', 'App\\\\Models\\\\User', '2024-01-21 17:19:38', '2024-01-21 17:19:38');\",\n                    \"time\": 5.16\n                }\n            ]\n        },\n        \"cache\": {\n            \"hit\": {\n                \"keys\": [\n                    \"c704364b808608fae95aa49d8e31562c\",\n                    \"c704364b808608fae95aa49d8e31562c\"\n                ],\n                \"total\": 2\n            },\n            \"miss\": {\n                \"keys\": [],\n                \"total\": 0\n            },\n            \"write\": {\n                \"keys\": [],\n                \"total\": 0\n            },\n            \"forget\": {\n                \"keys\": [],\n                \"total\": 0\n            }\n        },\n        \"profiling\": [\n            {\n                \"event\": \"request-time\",\n                \"time\": 0.3962721824645996\n            }\n        ],\n        \"memory\": {\n            \"usage\": 21847888,\n            \"peak\": 21910832\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|ADXHRPoH6X9hciipiS46RL4DCW7z7zfHV0qAA5sAb97632af",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.36.1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "testwqertyuio",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "testwqertyui",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "testqwertyui",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:80/api/stockmarkets/stock",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"api",
+								"stockmarkets",
+								"stock"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Host",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.36.1",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "testwqertyuio",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "testwqertyui",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "testqwertyui",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:80/api/stockmarkets/stock",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"stockmarkets",
+										"stock"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.15"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 21 Jan 2024 18:32:28 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"error\": \"The HTTP status code \\\"0\\\" is not valid.\",\n    \"debug\": {\n        \"database\": {\n            \"total\": 5,\n            \"items\": [\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select * from `personal_access_tokens` where `personal_access_tokens`.`id` = '2' limit 1;\",\n                    \"time\": 12.54\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select * from `users` where `users`.`id` = '2' and `users`.`deleted_at` is null limit 1;\",\n                    \"time\": 1.15\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"update `personal_access_tokens` set `last_used_at` = '2024-01-21 18:32:28', `personal_access_tokens`.`updated_at` = '2024-01-21 18:32:28' where `id` = '2';\",\n                    \"time\": 5.24\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select count(*) as aggregate from `users` where `id` = '2';\",\n                    \"time\": 0.46\n                },\n                {\n                    \"connection\": \"mysql\",\n                    \"query\": \"select * from `users` where `id` = '2';\",\n                    \"time\": 0.46\n                }\n            ]\n        },\n        \"cache\": {\n            \"hit\": {\n                \"keys\": [\n                    \"e9b6cc1432541b9ceebf113eee05eeba\",\n                    \"e9b6cc1432541b9ceebf113eee05eeba\"\n                ],\n                \"total\": 2\n            },\n            \"miss\": {\n                \"keys\": [],\n                \"total\": 0\n            },\n            \"write\": {\n                \"keys\": [],\n                \"total\": 0\n            },\n            \"forget\": {\n                \"keys\": [],\n                \"total\": 0\n            }\n        },\n        \"profiling\": [\n            {\n                \"event\": \"request-time\",\n                \"time\": 0.429887056350708\n            }\n        ],\n        \"memory\": {\n            \"usage\": 23776184,\n            \"peak\": 24124336\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "stockmarket",
+			"item": [
+				{
+					"name": "stockmarket",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|ADXHRPoH6X9hciipiS46RL4DCW7z7zfHV0qAA5sAb97632af",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.36.1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:80/api/stockmarkets/stock",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"api",
+								"stockmarkets",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

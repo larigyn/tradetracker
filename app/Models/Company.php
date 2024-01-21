@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Company extends BaseModel
+class Company extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -18,17 +18,12 @@ class Company extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'logo_id',
         'user_id',
         'name',
         'description',
-        'address'
+        'address',
+        'logo'
     ];
-
-    public function logo(): BelongsTo
-    {
-        return $this->belongsTo(Logo::class);
-    }
 
     public function user(): BelongsTo
     {

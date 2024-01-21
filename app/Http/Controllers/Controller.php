@@ -9,4 +9,17 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    /**
+     * @var array
+     */
+    public $response;
+
+    /**
+     * Controller constructor.
+     */
+    public function __construct()
+    {
+        $this->response = ['code' => 200];
+    }
 }
