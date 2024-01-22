@@ -88,7 +88,7 @@ docker-compose exec app php artisan storage:link
 
 ```
 
-Use the POSTMAN collection for testing the endpoints
+Use the POSTMAN collection in testing the endpoints
 
 ```
 
