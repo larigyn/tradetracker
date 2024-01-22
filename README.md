@@ -1,3 +1,5 @@
+## This contains api calls which means only the backend or the business logic.
+
 ## Specifications / Infrastructure Information
 
 -   Nginx
